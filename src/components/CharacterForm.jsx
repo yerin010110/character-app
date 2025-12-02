@@ -50,18 +50,7 @@ function CharacterForm({ onSubmit, editingCharacter, onCancelEdit }) {
     const isEdit = Boolean(editingCharacter);
 
     return (
-        <form
-            onSubmit={handleSubmit}
-            style={{
-                border: "1px solid #e5e7eb",
-                borderRadius: "12px",
-                padding: "12px 16px",
-                marginTop: "16px",
-                marginBottom: "10px",
-                background: "#fdf6e3",
-            }}
-            className="ac-font"
-        >
+        <form className="ac-form-box" onSubmit={handleSubmit}>
             <h3 style={{ fontSize: "15px", marginBottom: "8px" }}>
                 {isEdit ? "캐릭터 수정" : "새 캐릭터 추가"}
             </h3>

@@ -1,10 +1,9 @@
-// src/App.jsx
-import CharacterApiPage from "./pages/CharacterApiPage";
+import CharacterPage from "./pages/CharacterPage";
 
 function App() {
     return (
         <div className="app">
-            <CharacterApiPage />
+            <CharacterPage />
         </div>
     );
 }
