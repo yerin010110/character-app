@@ -1,7 +1,8 @@
-// src/pages/CharacterPage.jsx
 import { useState } from "react";
 import CharacterList from "../components/CharacterList";
 import CharacterForm from "../components/CharacterForm";
+import CharacterModal from "../components/CharacterModal";
+import AcHeader from "../components/AcHeader";
 
 function CharacterPage() {
     const initialCharacters = [
@@ -54,6 +55,7 @@ function CharacterPage() {
 
     const [characters, setCharacters] = useState(initialCharacters);
     const [editingCharacter, setEditingCharacter] = useState(null);
+    const [selectedCharacter, setSelectedCharacter] = useState(null);
 
     // 추가
     const handleAddCharacter = (newData) => {
@@ -81,9 +83,8 @@ function CharacterPage() {
 
     return (
         <section className="ac-section ac-font">
-            <h2>동물의 숲 주민 도감</h2>
+            <h2 className="ac-title">주민 도감</h2>
 
-            {/* 폼 (추가/수정) */}
             <CharacterForm
                 onSubmit={
                     editingCharacter ? handleEditCharacter : handleAddCharacter
@@ -92,13 +93,18 @@ function CharacterPage() {
                 onCancelEdit={() => setEditingCharacter(null)}
             />
 
-            {/* 리스트 */}
             <CharacterList
                 characters={characters}
                 onEditCharacter={(id) =>
                     setEditingCharacter(characters.find((c) => c.id === id))
                 }
                 onDeleteCharacter={handleDeleteCharacter}
+                onSelectCharacter={(c) => setSelectedCharacter(c)}
+            />
+
+            <CharacterModal
+                character={selectedCharacter}
+                onClose={() => setSelectedCharacter(null)}
             />
         </section>
     );

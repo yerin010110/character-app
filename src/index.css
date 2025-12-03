@@ -1,101 +1,249 @@
-/* 전체 화면 중앙 정렬 */
-#root {
+/* ------------------------------
+   전체 기본 스타일
+------------------------------ */
+body {
+    background: #f6f3e7; /* 동물의 숲 도감 느낌 */
+    font-family: "Gowun Dodum", sans-serif;
+    color: #4a4a4a;
+    margin: 0;
+    padding: 0;
+}
+
+.ac-section {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 24px;
 }
 
-/* =========================
-   폼 스타일링
-========================= */
-.ac-form-box {
-    background: #fbf7e3;
-    border: 1px solid #e3d9b5;
-    padding: 14px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+/* ------------------------------
+   상단 타이틀
+------------------------------ */
+.ac-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #355b3e;
+    text-align: center;
+    padding: 10px 0 20px;
 }
 
-.ac-form-box input,
-.ac-form-box select,
-.ac-form-box textarea {
-    width: 100%;
-    padding: 6px;
-    margin-bottom: 8px;
-    font-size: 14px;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-}
-
-.ac-btn-add {
-    padding: 6px 12px;
-    background: #489e57;
-    border: none;
-    color: white;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.ac-btn-add:hover {
-    background: #3b854a;
-}
-
-/* =========================
-   캐릭터 카드 그리드
-========================= */
-.ac-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    gap: 18px;
+/* ------------------------------
+   캐릭터 리스트 그리드
+------------------------------ */
+.ac-grid-wrapper {
     margin-top: 20px;
 }
 
-/* =========================
-   개별 캐릭터 카드 스타일
-========================= */
+.ac-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 26px;
+}
+
+/* ------------------------------
+   캐릭터 카드
+------------------------------ */
 .ac-character-card {
-    background: #fffdf7;
-    border: 1px solid #e6e1cc;
-    border-radius: 10px;
-    padding: 15px;
+    background: #ffffff;
+    border: 2px solid #ebe6d9;
+    border-radius: 18px;
+    padding: 12px;
     text-align: center;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.15s ease;
+    box-shadow: 0 3px 0 #dfd9c7;
+}
+
+.ac-character-card:hover {
+    transform: translateY(-4px);
+}
+
+/* 이미지 박스 */
+.ac-character-img-wrap {
+    width: 100%;
+    height: 160px;
+    border-radius: 14px;
+    background: #f5efe1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .ac-character-img {
-    width: 150px;
-    height: 150px;
+    width: 90%;
+    height: auto;
     object-fit: contain;
 }
 
+/* 텍스트 */
 .ac-character-name {
-    font-weight: bold;
-    font-size: 16px;
-    margin-top: 8px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #355b3e;
 }
 
 .ac-character-sub {
-    color: #666;
     font-size: 13px;
+    color: #6d7c69;
+    margin-top: 4px;
 }
 
-.ac-tag {
-    background: #eef7e5;
-    padding: 5px;
-    border-radius: 6px;
+.ac-character-meta {
+    font-size: 12px;
     margin-top: 6px;
+    color: #7a7a7a;
 }
 
-.ac-delete-btn {
+/* 말버릇 태그 */
+.ac-tag {
+    background: #fff4c4;
+    padding: 3px 8px;
+    border-radius: 8px;
+    border: 1px solid #ead9a7;
+    font-size: 12px;
     margin-top: 8px;
-    padding: 5px 12px;
-    background: #ff5959;
+    display: inline-block;
+}
+
+/* ------------------------------
+   카드 버튼들
+------------------------------ */
+.ac-card-buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+}
+
+.ac-btn-edit,
+.ac-btn-del {
+    width: 48%;
+    padding: 7px 0;
+    border-radius: 10px;
     border: none;
-    color: white;
-    border-radius: 6px;
+    font-size: 13px;
     cursor: pointer;
 }
 
-.ac-delete-btn:hover {
-    background: #e04444;
+.ac-btn-edit {
+    background: #fff2b0;
+    border: 1px solid #e2d18b;
+}
+
+.ac-btn-edit:hover {
+    background: #ffe98c;
+}
+
+.ac-btn-del {
+    background: #ffc4c4;
+    border: 1px solid #de8a8a;
+}
+
+.ac-btn-del:hover {
+    background: #ffa8a8;
+}
+
+/* ------------------------------
+   캐릭터 추가/수정 폼
+------------------------------ */
+.ac-form-box {
+    background: #fefcf7;
+    border: 2px solid #e9dec5;
+    border-radius: 16px;
+    padding: 22px 24px 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 3px 0 #ded5c1;
+}
+
+/* 제목 */
+.ac-form-title {
+    font-size: 15px;
+    margin-bottom: 14px;
+    color: #55503c;
+}
+
+/* 2 × 2 그리드 */
+.ac-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+    row-gap: 14px;
+}
+
+.ac-form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+/* 아래 단독 입력창 */
+.ac-form-row {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 라벨 */
+.ac-form-label {
+    font-size: 12px;
+    margin-bottom: 5px;
+    color: #6b6450;
+}
+
+/* 입력창 */
+.ac-form-input {
+    width: 100%;
+    padding: 9px 12px;
+    border-radius: 10px;
+    border: 1.5px solid #d8cfb8;
+    background: #ffffff;
+    font-size: 13px;
+    box-sizing: border-box;
+}
+
+/* 버튼 그룹 */
+.ac-form-buttons {
+    margin-top: 16px;
+    display: flex;
+    gap: 8px;
+}
+
+/* 제출 버튼 */
+.ac-form-submit {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid #16a34a;
+    background: #22c55e;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* 취소 버튼 */
+.ac-form-cancel {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid #9ca3af;
+    background: #e5e7eb;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* ------------------------------
+   선택된 캐릭터 모달 (옵션)
+------------------------------ */
+.ac-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ac-modal-box {
+    width: 380px;
+    background: white;
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }

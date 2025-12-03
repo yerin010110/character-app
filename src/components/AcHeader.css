@@ -1,0 +1,58 @@
+/* 전체 헤더 */
+.ac-header {
+    background: #f6f3e7;
+    padding: 12px 0;
+    border-bottom: 2px solid #e3dbc9;
+}
+
+/* 내부 컨테이너 — 가로 정렬 */
+.ac-header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* 좌우 나누기 */
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* 로고 + 타이틀 그룹 */
+.ac-logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* 로고 이미지 */
+.ac-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+/* 제목 */
+.ac-logo-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #355b3e;
+}
+
+/* 네비게이션 메뉴 */
+.ac-nav {
+    display: flex;
+    gap: 14px;
+}
+
+.ac-nav a {
+    background: #ffffff;
+    color: #355b3e;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid #dcd6c4;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.ac-nav a:hover {
+    background: #f0ead6;
+}

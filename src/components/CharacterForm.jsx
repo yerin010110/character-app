@@ -1,3 +1,4 @@
+// src/components/CharacterForm.jsx
 import { useEffect, useState } from "react";
 
 function CharacterForm({ onSubmit, editingCharacter, onCancelEdit }) {
@@ -51,155 +52,79 @@ function CharacterForm({ onSubmit, editingCharacter, onCancelEdit }) {
 
     return (
         <form className="ac-form-box" onSubmit={handleSubmit}>
-            <h3 style={{ fontSize: "15px", marginBottom: "8px" }}>
+            <h3 className="ac-form-title">
                 {isEdit ? "캐릭터 수정" : "새 캐릭터 추가"}
             </h3>
 
-            <div
-                style={{
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr",
-                    gap: "8px",
-                }}
-            >
-                <div>
-                    <label
-                        style={{
-                            fontSize: "12px",
-                            display: "block",
-                            marginBottom: "2px",
-                        }}
-                    >
-                        이름
-                    </label>
+            {/* 위쪽 2 x 2 입력 영역 */}
+            <div className="ac-form-grid">
+                <div className="ac-form-field">
+                    <label className="ac-form-label">이름</label>
                     <input
+                        className="ac-form-input"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        style={{
-                            width: "100%",
-                            padding: "6px",
-                            fontSize: "13px",
-                        }}
                         placeholder="예: 레이니"
                     />
                 </div>
 
-                <div>
-                    <label
-                        style={{
-                            fontSize: "12px",
-                            display: "block",
-                            marginBottom: "2px",
-                        }}
-                    >
-                        종(동물 종류)
-                    </label>
+                <div className="ac-form-field">
+                    <label className="ac-form-label">종(동물 종류)</label>
                     <input
+                        className="ac-form-input"
                         value={species}
                         onChange={(e) => setSpecies(e.target.value)}
-                        style={{
-                            width: "100%",
-                            padding: "6px",
-                            fontSize: "13px",
-                        }}
                         placeholder="예: 개구리, 늑대"
                     />
                 </div>
 
-                <div>
-                    <label
-                        style={{
-                            fontSize: "12px",
-                            display: "block",
-                            marginBottom: "2px",
-                        }}
-                    >
-                        성격
-                    </label>
+                <div className="ac-form-field">
+                    <label className="ac-form-label">성격</label>
                     <input
+                        className="ac-form-input"
                         value={personality}
                         onChange={(e) => setPersonality(e.target.value)}
-                        style={{
-                            width: "100%",
-                            padding: "6px",
-                            fontSize: "13px",
-                        }}
                         placeholder="예: 청순, 우아, 무뚝뚝"
                     />
                 </div>
 
-                <div>
-                    <label
-                        style={{
-                            fontSize: "12px",
-                            display: "block",
-                            marginBottom: "2px",
-                        }}
-                    >
-                        생일
-                    </label>
+                <div className="ac-form-field">
+                    <label className="ac-form-label">생일</label>
                     <input
+                        className="ac-form-input"
                         value={birthday}
                         onChange={(e) => setBirthday(e.target.value)}
-                        style={{
-                            width: "100%",
-                            padding: "6px",
-                            fontSize: "13px",
-                        }}
                         placeholder="예: 2월 17일"
                     />
                 </div>
             </div>
 
-            <div style={{ marginTop: "8px" }}>
-                <label
-                    style={{
-                        fontSize: "12px",
-                        display: "block",
-                        marginBottom: "2px",
-                    }}
-                >
-                    말버릇
-                </label>
+            {/* 말버릇 */}
+            <div className="ac-form-row">
+                <label className="ac-form-label">말버릇</label>
                 <input
+                    className="ac-form-input"
                     value={catchPhrase}
                     onChange={(e) => setCatchPhrase(e.target.value)}
-                    style={{ width: "100%", padding: "6px", fontSize: "13px" }}
                     placeholder="예: 개굴개굴"
                 />
             </div>
 
-            <div style={{ marginTop: "8px" }}>
-                <label
-                    style={{
-                        fontSize: "12px",
-                        display: "block",
-                        marginBottom: "2px",
-                    }}
-                >
+            {/* 이미지 파일명 / URL */}
+            <div className="ac-form-row">
+                <label className="ac-form-label">
                     이미지 파일명 (public/images 기준)
                 </label>
                 <input
+                    className="ac-form-input"
                     value={image}
                     onChange={(e) => setImage(e.target.value)}
-                    style={{ width: "100%", padding: "6px", fontSize: "13px" }}
                     placeholder="예: Lily.jpg 또는 https://example.com/image.png"
                 />
             </div>
 
-            <div style={{ marginTop: "10px", display: "flex", gap: "8px" }}>
-                <button
-                    type="submit"
-                    style={{
-                        padding: "6px 12px",
-                        borderRadius: "999px",
-                        border: "1px solid #16a34a",
-                        background: "#22c55e",
-                        color: "#fff",
-                        fontSize: "13px",
-                        cursor: "pointer",
-                    }}
-                >
+            <div className="ac-form-buttons">
+                <button type="submit" className="ac-form-submit">
                     {isEdit ? "수정 완료" : "캐릭터 추가"}
                 </button>
 
@@ -207,14 +132,7 @@ function CharacterForm({ onSubmit, editingCharacter, onCancelEdit }) {
                     <button
                         type="button"
                         onClick={onCancelEdit}
-                        style={{
-                            padding: "6px 12px",
-                            borderRadius: "999px",
-                            border: "1px solid #9ca3af",
-                            background: "#e5e7eb",
-                            fontSize: "13px",
-                            cursor: "pointer",
-                        }}
+                        className="ac-form-cancel"
                     >
                         수정 취소
                     </button>

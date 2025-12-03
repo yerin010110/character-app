@@ -1,14 +1,11 @@
 import CharacterCard from "./CharacterCard";
 
-function CharacterList({ characters, onEditCharacter, onDeleteCharacter }) {
-    if (characters.length === 0) {
-        return (
-            <p style={{ textAlign: "center", color: "#6b7280" }}>
-                조건에 맞는 주민이 없습니다.
-            </p>
-        );
-    }
-
+function CharacterList({
+    characters,
+    onEditCharacter,
+    onDeleteCharacter,
+    onSelectCharacter,
+}) {
     return (
         <div className="ac-grid-wrapper">
             <div className="ac-grid">
@@ -16,6 +13,7 @@ function CharacterList({ characters, onEditCharacter, onDeleteCharacter }) {
                     <CharacterCard
                         key={c.id}
                         character={c}
+                        onClick={() => onSelectCharacter(c)}
                         onEdit={() => onEditCharacter(c.id)}
                         onDelete={() => onDeleteCharacter(c.id)}
                     />
