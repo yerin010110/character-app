@@ -3,7 +3,7 @@ import CharacterPage from "./pages/CharacterPage";
 
 function App() {
     return (
-        <div className="app">
+        <div className="ac-app">
             <AcHeader />
             <CharacterPage />
         </div>

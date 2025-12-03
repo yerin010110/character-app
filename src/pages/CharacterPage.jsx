@@ -2,7 +2,6 @@ import { useState } from "react";
 import CharacterList from "../components/CharacterList";
 import CharacterForm from "../components/CharacterForm";
 import CharacterModal from "../components/CharacterModal";
-import AcHeader from "../components/AcHeader";
 
 function CharacterPage() {
     const initialCharacters = [
