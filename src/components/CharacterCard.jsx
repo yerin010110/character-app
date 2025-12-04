@@ -6,7 +6,7 @@ function CharacterCard({ character, onClick, onEdit, onDelete }) {
                     src={
                         character.image.startsWith("http")
                             ? character.image
-                            : `/images/${character.image}`
+                            : `images/${character.image}`
                     }
                     alt={character.name}
                     className="ac-character-img"
